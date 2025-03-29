@@ -33,3 +33,13 @@ lerna-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+.env
+.eslintrc.js
+.gitignore
+.prettierrc
+README.md
+nest-cli.json
+package.json
+tsconfig.build.json
+tsconfig.json
