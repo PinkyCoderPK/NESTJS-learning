@@ -20,6 +20,7 @@ export class UsersService {
       email: createUserDto.email,
       password: hashPassword,
       name: createUserDto.name,
+      age: createUserDto.age,
     });
     return user;
   }
