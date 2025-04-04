@@ -1,5 +1,12 @@
 import { Type } from 'class-transformer';
-import { IsEmail, IsNotEmpty, IsNumber, Max, Min } from 'class-validator';
+import {
+  IsEmail,
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  Max,
+  Min,
+} from 'class-validator';
 
 export class CreateUserDto {
   @IsEmail({}, { message: 'Email không đúng định dạng' })
@@ -7,8 +14,10 @@ export class CreateUserDto {
   email: string;
   @IsNotEmpty({ message: 'Mật khẩu không được để trống' })
   password: string;
+
   name: string;
 
+  @IsOptional() // Giúp trường age không bị validate khi không có dữ liệu gửi lên (update)
   @Type(() => Number) // Ép kiểu dữ liệu từ string -> number
   @Min(0, { message: 'Tuổi phải lớn hơn 0' })
   @Max(100, { message: 'Tuổi phải bé hơn 100' })
